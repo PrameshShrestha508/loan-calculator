@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="loan.css">
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+		<h1>Loan Calculator</h1>
+		<form action="" method="post" id="MyForm">
+		<label for="amount">Amount(Rs):</label><input type="text" name="amount" id="amount" autocomplete="off" required>
+		<label for="time">Time(in years)</label><input type="text" name="time" id="time"  autocomplete="off" required>
+		<label for="rate">Rate(%)</label><input type="text" name="rate" id="rate" autocomplete="off" required>
+		<div class="btn">
+		<input type="submit" value="Calculate" id="submit">   <input type="reset" id="reset" value="Reset"> 
+	</div>
+		 <h1>RESULTS:</h1>
+		<label for="mon_pay">Monthly Payment</label><input type="text" name="mon_pay" id="mon_pay">
+		<label for="tot_pay">Total Payment</label><input type="text" name="tot_pay" id="tot_pay"> 
+		<label for="tot_int">Total Interest</label><input type="text" name="tot_int" id="tot_int">
+		
+		</form>
+	</div>
+	</div>
+</body>
+<script>
+	function loan()
+ {
+   var mon_pay;
+   var tot_pay;
+  var tot_int;
+  var amount = document.getElementById('amount').value;
+  var time = document.getElementById('time').value;
+  var rate = document.getElementById('rate').value;
+  tot_int = (amount*time*rate)/100;
+   tot_pay =parseInt(amount) + parseInt(tot_int);//otherwise it will concatenate
+  mon_pay=(tot_pay/12);
+  document.getElementById('tot_int').value = "Rs."+tot_int;
+  document.getElementById('tot_pay').value = "Rs."+tot_pay;
+  document.getElementById('mon_pay').value = "Rs."+mon_pay;
+  return false;
+ } 
+document.getElementById('MyForm').onsubmit = loan;
+ document.getElementById('MyForm').onsubmit = loan;
+ document.getElementById('MyForm').onsubmit = loan;	
+</script>
+</html>
